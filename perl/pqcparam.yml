@@ -1,0 +1,66 @@
+general:
+ rscript: /opt/NGSTools/Rlocal
+ genomes: /opt/NGSTools/BEDTools/genomes
+ imageformat: png
+coverage:
+ path: /media/HD4/Fleming/dev/covsat.pl 
+ genome: mm9
+ mappable: 
+ resolution: 
+ step: 100000
+ ncore: 3
+htseqtools:
+ mds: TRUE
+ ssd: TRUE
+ gini: TRUE
+ ncore: 1
+corqc:
+ counts: TRUE
+ pca: TRUE
+ mds: TRUE
+ hilbert: TRUE
+corpeaks:
+ plot:
+  circle: FALSE
+  ellipse: TRUE
+  heatmap: TRUE
+  cgramshade: TRUE
+  cgrampts: TRUE
+  simple: TRUE
+  image: TRUE
+ avgwin: 100
+ fdrcut: 1
+idr:
+ caller:
+  macs:
+   path: /usr/bin/macs2
+   pvalue: 1e-1
+peak: 
+ macs:
+  path: /usr/bin/macs14
+  format: 
+  petdist: 
+  gsize: mm
+  tsize:
+  bw: 300
+  mfold: 10,30
+  pvalue: 1e-6
+  nolamda: 
+  slocal: 1000
+  llocal: 10000
+  on-auto: 
+  nomodel: 
+  shiftsize: 
+  keep-dup: 
+  to-large: 
+  wig: 
+  bdg: 
+  single-profile: 
+  space: 
+  call-subpeaks: 
+  verbose: 
+  diag: 
+  fe-min: 0
+  fe-max: 50
+  fe-step: 5
+# Other peak callers might be added in the same manner 
