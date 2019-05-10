@@ -229,11 +229,13 @@ processMACSOutput <- function(input,output=NA,mapfile=NA,fdr.cut=ifelse(ver==14,
                 flush.console()
                 ovObj.nreads[[nam]]$treatment = length(treat.bed)
                 ovObj.taglen[[nam]]$treatment = median(width(treat.bed))
-                ovObj.treat[[nam]] <- countOverlaps(input.bed[[nam]],treat.bed,minoverlap=ovObj.taglen[[nam]]$treatment-1)
+                #ovObj.treat[[nam]] <- countOverlaps(input.bed[[nam]],treat.bed,minoverlap=ovObj.taglen[[nam]]$treatment-1)
+                ovObj.treat[[nam]] <- countOverlaps(input.bed[[nam]],treat.bed)
                 if (normalize=="balance")
                 {
                     cat("  Counting tags in the raw treatment track ",basename(rawt)," over the corresponding peak file ",nam,"... Please wait...\n",sep="")
-                    ovObj.rawt[[nam]] <- countOverlaps(input.bed[[nam]],rawt.bed,minoverlap=ovObj.taglen[[nam]]$treatment-1)
+                    #ovObj.rawt[[nam]] <- countOverlaps(input.bed[[nam]],rawt.bed,minoverlap=ovObj.taglen[[nam]]$treatment-1)
+                    ovObj.rawt[[nam]] <- countOverlaps(input.bed[[nam]],rawt.bed)
                 }
                 if (normalize=="peakseq.original" || normalize=="peakseq.rlm")
                 {
@@ -247,11 +249,13 @@ processMACSOutput <- function(input,output=NA,mapfile=NA,fdr.cut=ifelse(ver==14,
                     flush.console()
                     ovObj.nreads[[nam]]$control = length(control.bed)
                     ovObj.taglen[[nam]]$control = median(width(control.bed))
-                    ovObj.control[[nam]] <- countOverlaps(input.bed[[nam]],control.bed,minoverlap=ovObj.taglen[[nam]]$control-1)
+                    #ovObj.control[[nam]] <- countOverlaps(input.bed[[nam]],control.bed,minoverlap=ovObj.taglen[[nam]]$control-1)
+                    ovObj.control[[nam]] <- countOverlaps(input.bed[[nam]],control.bed)
                     if (normalize=="balance")
                     {
                         cat("  Counting tags in the raw control track ",basename(rawc)," over the corresponding peak file ",nam,"... Please wait...\n",sep="")
-                        ovObj.rawc[[nam]] <- countOverlaps(input.bed[[nam]],rawc.bed,minoverlap=ovObj.taglen[[nam]]$control-1)
+                        #ovObj.rawc[[nam]] <- countOverlaps(input.bed[[nam]],rawc.bed,minoverlap=ovObj.taglen[[nam]]$control-1)
+                        ovObj.rawc[[nam]] <- countOverlaps(input.bed[[nam]],rawc.bed)
                     }
                     if (normalize=="peakseq.original" || normalize=="peakseq.rlm")
                     {
